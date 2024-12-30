@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 
@@ -24,14 +25,32 @@ const ViewSnippetPage = async ({ params }: ViewSnippetProps) => {
   return (
     <div>
       <div className="text-gray-300 flex m-4 justify-between items-center">
-        <h1 className="text-xl font-bold">
-          {snippet.title}
-          {/* View Snippet */}
-        </h1>
+        <Link
+          href={`/`}
+          className="font-bold text-blue-800 border border-blue-400 rounded-full bg-white p-1 shadow-md hover:shadow-blue-500 hover:bg-transparent hover:text-white"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {" "}
+            <path
+              d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"
+              fill="currentColor"
+            />{" "}
+          </svg>
+        </Link>
+        <h1 className="text-xl font-bold">{snippet.title}</h1>
         <div className="flex gap-4">
-          <button className="border px-4 py-2 bg-blue-400 text-black font-semibold rounded-md hover:bg-blue-600 transition duration-200">
+          <Link
+            href={`/snippets/${snippet.id}/edit`}
+            className="border px-4 py-2 bg-blue-400 text-black font-semibold rounded-md hover:bg-blue-600 transition duration-200"
+          >
             Edit
-          </button>
+          </Link>
           <button className="border px-4 py-2 bg-red-400 text-black font-semibold rounded-md hover:bg-red-600 transition duration-200">
             Delete
           </button>
