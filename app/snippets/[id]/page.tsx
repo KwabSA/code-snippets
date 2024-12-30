@@ -22,9 +22,24 @@ const ViewSnippetPage = async ({ params }: ViewSnippetProps) => {
   }
 
   return (
-    <div className="text-gray-300 mt-8">
-      View Snippet
-      <h3>{snippet.title}</h3>
+    <div>
+      <div className="text-gray-300 flex m-4 justify-between items-center">
+        <h1 className="text-xl font-bold">
+          {snippet.title}
+          {/* View Snippet */}
+        </h1>
+        <div className="flex gap-4">
+          <button className="border px-4 py-2 bg-blue-400 text-black font-semibold rounded-md hover:bg-blue-600 transition duration-200">
+            Edit
+          </button>
+          <button className="border px-4 py-2 bg-red-400 text-black font-semibold rounded-md hover:bg-red-600 transition duration-200">
+            Delete
+          </button>
+        </div>
+      </div>
+      <pre className="m-4 border rounded text-white bg-gray-800 p-3">
+        <code>{snippet.code}</code>
+      </pre>
     </div>
   );
 };

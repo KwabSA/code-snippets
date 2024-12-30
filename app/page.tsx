@@ -23,7 +23,7 @@ const Home = async () => {
       <div className="flex mt-8 justify-between items-center">
         <h1 className=" pl-2 text-white font-bold text-2xl">Snippets</h1>
         <Link
-          className="border px-4 py-2 rounded bg-blue-800 text-white"
+          className="border px-4 py-2 bg-blue-400 text-black font-semibold rounded-md hover:bg-blue-600 transition duration-200"
           href={`/snippets/new`}
         >
           New
