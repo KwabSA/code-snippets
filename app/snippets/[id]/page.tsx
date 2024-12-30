@@ -8,6 +8,9 @@ interface ViewSnippetProps {
 }
 
 const ViewSnippetPage = async ({ params }: ViewSnippetProps) => {
+  // page loading timer
+  await new Promise((r) => setTimeout(r, 1500));
+
   // retrieve record
   const { id } = await params;
   const snippet = await db.snippet.findFirst({
