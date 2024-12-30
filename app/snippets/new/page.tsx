@@ -2,11 +2,18 @@ import React from "react";
 
 const CreateSnippetPage = () => {
   return (
-    <form className="max-w-lg mx-auto p-4 border border-gray-200 rounded-md shadow-md">
-      <h3 className="font-bold text-xl mb-4 text-gray-700">Create Snippet</h3>
+    <form className="max-w-lg mx-auto mt-8 p-4 border border-gray-200 rounded-md shadow-md">
+      <div className="flex items-center my-4">
+        {" "}
+        <hr className="flex-grow border-gray-300" />{" "}
+        <h3 className="mx-4 font-bold text-xl text-gray-200">
+          Create Code Snippet
+        </h3>{" "}
+        <hr className="flex-grow border-gray-300" />{" "}
+      </div>
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-gray-600 font-medium" htmlFor="title">
+          <label className="text-gray-400 font-medium" htmlFor="title">
             Title
           </label>
           <input
@@ -17,7 +24,7 @@ const CreateSnippetPage = () => {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-gray-600 font-medium" htmlFor="code">
+          <label className="text-gray-400 font-medium" htmlFor="code">
             Code
           </label>
           <textarea
