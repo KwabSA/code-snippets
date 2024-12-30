@@ -8,10 +8,11 @@ interface EditSnippetProps {
   };
 }
 
-const EditSnippetPage = async (props: EditSnippetProps) => {
-  const id = parseInt(props.params.id);
+const EditSnippetPage = async ({ params }: EditSnippetProps) => {
+  // const id =  parseInt(props.params.id);
+  const { id } = await params;
   const snippet = await db.snippet.findFirst({
-    where: { id },
+    where: { id: parseInt(id) },
   });
 
   if (!snippet) {
@@ -20,6 +21,7 @@ const EditSnippetPage = async (props: EditSnippetProps) => {
 
   return (
     <div className="text-gray-300 m-4">
+      <h1 className="font-bold mb-4"> Editing {snippet.title} ...</h1>
       <EditSnippetForm snippet={snippet} />
     </div>
   );
