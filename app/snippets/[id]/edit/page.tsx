@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { db } from "@/db";
+import EditSnippetForm from "@/components/edit-snippet-form";
 
 interface EditSnippetProps {
   params: {
@@ -17,7 +18,11 @@ const EditSnippetPage = async (props: EditSnippetProps) => {
     return notFound();
   }
 
-  return <div className="text-gray-300 m-4">Editing {snippet?.title}</div>;
+  return (
+    <div className="text-gray-300 m-4">
+      <EditSnippetForm snippet={snippet} />
+    </div>
+  );
 };
 
 export default EditSnippetPage;
