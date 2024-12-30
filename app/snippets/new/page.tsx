@@ -1,8 +1,33 @@
-import React from "react";
+import { redirect } from "next/navigation";
+import { db } from "@/db";
 
 const CreateSnippetPage = () => {
+  // create record and redirect to root route
+  async function createSnippet(formData: FormData) {
+    // create server action
+    "use server";
+
+    // check and validate user inputs
+    const title = formData.get("title") as string;
+    const code = formData.get("code") as string;
+
+    // create new record in the databse
+    const snippet = await db.snippet.create({
+      data: {
+        title,
+        code,
+      },
+    });
+    console.log(snippet);
+
+    // redirect to root route
+    redirect("/");
+  }
   return (
-    <form className="max-w-lg mx-auto mt-8 p-4 border border-gray-200 rounded-md shadow-md">
+    <form
+      action={createSnippet}
+      className="max-w-lg mx-auto mt-8 p-4 border border-gray-200 rounded-md shadow-md shadow-blue-400"
+    >
       <div className="flex items-center my-4">
         {" "}
         <hr className="flex-grow border-gray-300" />{" "}
