@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { db } from "@/db";
 
+export const metadata = {
+  title: "Home",
+};
+
 const Home = async () => {
   // retrieve records
   const snippets = await db.snippet.findMany();

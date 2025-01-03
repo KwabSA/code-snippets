@@ -1,6 +1,10 @@
 import { redirect } from "next/navigation";
 import { db } from "@/db";
 
+export const metadata = {
+  title: "New Snippet",
+};
+
 const CreateSnippetPage = () => {
   // create record and redirect to root route
   async function createSnippet(formData: FormData) {

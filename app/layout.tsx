@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Code Snippet",
+  title: { template: "CodeSnippets | %s", default: "CodeSnippets" },
   description: "Simple app for handy code snippet",
+  applicationName: "CodeSnippets",
 };
 
 export default function RootLayout({

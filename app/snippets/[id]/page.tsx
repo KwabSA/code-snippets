@@ -2,6 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
 
+export const metadata = {
+  title: "View Snippet",
+};
+
 interface ViewSnippetProps {
   params: {
     id: string;

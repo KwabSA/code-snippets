@@ -2,6 +2,10 @@ import { notFound } from "next/navigation";
 import { db } from "@/db";
 import EditSnippetForm from "@/components/edit-snippet-form";
 
+export const metadata = {
+  title: "Edit Snippet",
+};
+
 interface EditSnippetProps {
   params: {
     id: string;
