@@ -17,11 +17,27 @@ const EditSnippetForm = ({ snippet }: EditSnippetFormProps) => {
     setCode(value);
   };
   // calling server action
-  const editSnippetAction = actions.editSnippet.bind(null, snippet.id, code);
+  const editSnippetAction = actions.editSnippet.bind(
+    null,
+    snippet.id,
+    snippet.title,
+    code
+  );
 
   return (
     // <div className="text-gray-300 m-4 font-bold">Editing: {snippet.title}</div>
     <div>
+      {/* <div className="flex flex-col gap-2 py-4">
+        <label className="text-gray-400 font-medium" htmlFor="title">
+          Title
+        </label>
+        <input
+          name="title"
+          className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          id="title"
+          placeholder={`${snippet.title}`}
+        />
+      </div> */}
       <Editor
         height="40vh"
         theme="vs-dark"

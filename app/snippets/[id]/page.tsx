@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/db";
+import * as actions from "@/actions";
 
 export const metadata = {
   title: "View Snippet",
@@ -25,6 +26,8 @@ const ViewSnippetPage = async ({ params }: ViewSnippetProps) => {
   if (!snippet) {
     return notFound();
   }
+
+  const deleteSnippetAaction = actions.deleteSnippet.bind(null, snippet.id);
 
   return (
     <div>
@@ -51,13 +54,15 @@ const ViewSnippetPage = async ({ params }: ViewSnippetProps) => {
         <div className="flex gap-4">
           <Link
             href={`/snippets/${snippet.id}/edit`}
-            className="border px-4 py-2 bg-blue-400 text-black font-semibold rounded-md hover:bg-blue-600 transition duration-200"
+            className="border px-4 py-2  font-semibold rounded-md hover:bg-blue-600 transition duration-200"
           >
             Edit
           </Link>
-          <button className="border px-4 py-2 bg-red-400 text-black font-semibold rounded-md hover:bg-red-600 transition duration-200">
-            Delete
-          </button>
+          <form action={deleteSnippetAaction}>
+            <button className="border px-4 py-2  font-semibold rounded-md hover:bg-red-600 transition duration-200">
+              Delete
+            </button>
+          </form>
         </div>
       </div>
       <pre className="m-4 border rounded text-white bg-gray-800 p-3">
